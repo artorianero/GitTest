@@ -1,0 +1,29 @@
+# 添加文件到仓库
+git add readme.txt
+git add readme.txt xxx.txt
+git add readme.txt 'Git Command.txt'(有空格,所以要用引号包住)
+
+# 提交文件(所有git add的文件)
+git commit -m "change description"
+
+# 查看仓库状态(文件有变化或出现未添加过的文件等)
+git status
+
+# 与上一次commit的差别
+# 未提交过的是与git add时的差别？
+git diff
+
+# 显示仓库的所有版本
+git log
+
+# 版本回滚
+# 一个^代表回滚一个版本，回退多个版本时用HEAD~x
+# 也可以使用commit时生成的id来回退
+git reset --hard HEAD^
+git reset --hard HEAD^^
+git reset --hard HEAD~100
+git reset --hard (version id)
+git reset --hard e8b491fda6790c7e2
+
+# 显示历史commit和reset等的记录
+git reflog
