@@ -1,1 +1,1 @@
-git push test
+test git push
