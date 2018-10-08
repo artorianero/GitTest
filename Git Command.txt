@@ -1,20 +1,33 @@
+# 初始化git仓库（当前目录下初始化）
+git init
+
+
 # 添加文件到仓库
 git add readme.txt
 git add readme.txt xxx.txt
 git add readme.txt 'Git Command.txt'(有空格,所以要用引号包住)
 
+
 # 提交文件(所有git add的文件)
 git commit -m "change description"
+
 
 # 查看仓库状态(文件有变化或出现未添加过的文件等)
 git status
 
+
 # 与上一次commit的差别
 # 未提交过的文件显示的是与git add时的差别？
 git diff
+# 显示当前xxx.txt文件与HEAD^x版本的差别
+git diff HEAD -- xxx.txt
+git diff HEAD^^ -- xxx.txt
+
 
 # 显示仓库的所有版本
 git log
+git log --pretty=oneline(简化版显示)
+
 
 # 版本回滚
 # 一个^代表回滚一个版本，回退多个版本时用HEAD~x
@@ -25,5 +38,40 @@ git reset --hard HEAD~100
 git reset --hard (version id)
 git reset --hard e8b491fda6790c7e2
 
+
 # 显示历史commit和reset等的记录
 git reflog
+
+
+# 撤销所有git add的文件
+git reset HEAD
+# 撤销指定文件
+git reset HEAD readme.txt
+
+
+# 丢弃工作区的修改（用版本库里的版本替换工作区的版本）
+git checkout -- readme.txt
+
+
+# 删除文件（将版本库中的文件移动到暂存区，还要git commit后才算删除）
+git rm test.txt
+git commit -m "remove test.txt
+
+
+# 添加远程Git
+# 通过SSH方式
+git remote add origin git@github.com:artorianero/GitTest.git
+# 通过HTTP方式（试了一下，这种方式git push会报错，不知道为啥）
+git remote add origin https://github.com/artorianero/GitTest.git
+
+
+# 将本地库的所有文件推送到远程库
+# 将本地的master分支推送到origin远程库
+git push origin master
+# 将本地的master分支推送到origin远程库，同时制定origin为默认主机。后面直接使用git push即可，不用加任何参数
+git push -u origin master
+
+
+# 从远程库克隆
+# 通过SSH方式
+git clone git@github.com:artorianero/GitTest.git
