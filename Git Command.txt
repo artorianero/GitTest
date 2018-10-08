@@ -16,6 +16,10 @@ git commit -m "change description"
 git status
 
 
+# 显示所有分支
+git branch
+
+
 # 与上一次commit的差别
 # 未提交过的文件显示的是与git add时的差别？
 git diff
